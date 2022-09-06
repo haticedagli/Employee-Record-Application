@@ -14,13 +14,13 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 public class ExceptionHandling extends ResponseEntityExceptionHandler {
 
     @ExceptionHandler({ NotFoundException.class })
-    public ResponseEntity<Object> handleToDeeplinkProductException(NotFoundException ex, WebRequest request) {
+    public ResponseEntity<Object> handleNotFoundException(NotFoundException ex, WebRequest request) {
         return new ResponseEntity<>(
                 ex.getMessage(), new HttpHeaders(), HttpStatus.NOT_FOUND);
     }
 
     @ExceptionHandler({ BusinessException.class })
-    public ResponseEntity<Object> handleToDeeplinkSearchException(BusinessException ex, WebRequest request) {
+    public ResponseEntity<Object> handleBusinessException(BusinessException ex, WebRequest request) {
         return new ResponseEntity<>(
                 ex.getMessage(), new HttpHeaders(), HttpStatus.INTERNAL_SERVER_ERROR);
     }
